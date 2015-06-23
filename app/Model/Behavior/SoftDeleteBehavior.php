@@ -346,7 +346,8 @@ class SoftDeleteBehavior extends ModelBehavior {
 		$parentModels = array_keys($model->belongsTo);
 
 		foreach ($parentModels as $parentModel) {
-			list($plugin, $modelClass) = pluginSplit($parentModel, true);
+			$parentModelClassName = Hash::get($model->belongsTo, $parentModel . '.className');
+			list($plugin, $modelClass) = pluginSplit($parentModelClassName, true);
 			App::uses($modelClass, $plugin . 'Model');
 			if (!class_exists($modelClass)) {
 				throw new MissingModelException(array('class' => $modelClass));
