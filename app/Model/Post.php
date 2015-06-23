@@ -23,7 +23,7 @@ class Post extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'User' => array(
+		'PostingUser' => array(
 			'className' => 'User',
 			'foreignKey' => 'user_id',
 			'conditions' => '',

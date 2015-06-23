@@ -23,7 +23,7 @@ class User extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Post' => array(
+		'UserPost' => array(
 			'className' => 'Post',
 			'foreignKey' => 'user_id',
 			'dependent' => false,
